@@ -11,6 +11,8 @@ CFLAGS = -Wall -Wextra -std=c++11
 
 INCLUDES = -Iinclude
 
+LIBS = -lsfml-graphics -lsfml-window -lsfml-system
+
 SRCDIR = src
 
 OBJDIR = obj
@@ -25,7 +27,7 @@ OBJECTS = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SOURCES))
 
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(BINDIR)
-	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LIBS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(OBJDIR)
