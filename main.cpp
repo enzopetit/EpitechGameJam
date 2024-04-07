@@ -103,6 +103,34 @@ void Menu::displayRules()
     }
 }
 
+void Menu::startGame()
+{
+    sf::Text text;
+    sf::Font font;
+    if (!font.loadFromFile("arial.ttf")) {
+        std::cout << "Erreur lors du chargement de la police." << std::endl;
+        return;
+    }
+    text.setFont(font);
+    text.setCharacterSize(30);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold);
+    text.setString("Game is starting ...");
+    text.setPosition(50, 50);
+
+    while (window->isOpen()) {
+        sf::Event event;
+        while (window->pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window->close();
+        }
+
+        window->clear(sf::Color(128, 128, 128));
+        window->draw(text);
+        window->display();
+    }
+}
+
 void Menu::displayButton()
 {
     sf::Texture texture;
@@ -174,7 +202,7 @@ void Menu::displayButton()
                 sf::Vector2i mousePosition = sf::Mouse::getPosition(*window);
 
                 if (buttonJouer.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
-                    display_world(y);
+                    startGame();
                 } else if (buttonRegles.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
                     displayRules();
                 } else if (buttonCreateur.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {

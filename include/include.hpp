@@ -39,8 +39,7 @@ class Menu {
         void displayButton();
         void displayRules();
         void displayCredit();
-        // void start_game();
-        // void end_game();
+        void startGame();
     private:
         sf::RenderWindow* window;
         sf::Music music;
