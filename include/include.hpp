@@ -15,8 +15,6 @@
     #include <SFML/Network.hpp>
 
 namespace imp {
-    int game_app(void);
-
     class Graphic {
         public:
             Graphic();
