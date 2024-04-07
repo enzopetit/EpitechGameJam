@@ -13,5 +13,5 @@ int imp::game_app(void)
     //load other important things to load before start
 
     imp::Menu menu;
-    return menu.main_loop(&window);
+    return menu.main_loop(window);
 }

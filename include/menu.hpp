@@ -16,7 +16,13 @@ namespace imp {
             Menu();
             ~Menu() = default;
 
-            int main_loop(sf::RenderWindow *window);
+            int main_loop(sf::RenderWindow &window);
+
+            void draw_menu(sf::RenderWindow &window);
+            void draw_bg(sf::RenderWindow &window);
+
+        protected:
+            sf::RenderTexture backGround;
     };
 }
 
