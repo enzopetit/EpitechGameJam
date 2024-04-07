@@ -106,7 +106,7 @@ int main(void)
 {
     sf::RenderWindow window(sf::VideoMode(600, 600), "Jam Game");
 
-    Menu menu(&window);
+    Menu menu(window);
     menu.displayButton();
     return 0;
 }

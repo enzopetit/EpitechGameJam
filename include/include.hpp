@@ -31,8 +31,8 @@ class Menu {
     public:
         Menu(sf::RenderWindow* window) : window(window) {
             window->setFramerateLimit(30);
-            // if (music.openFromFile("daft.ogg"))
-            //     music.play();
+            if (music.openFromFile("daft.ogg"))
+                music.play();
 
         }
         ~Menu() {}
