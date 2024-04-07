@@ -1,8 +1,10 @@
 CC = g++
 
-CFLAGS = -std=c++11 -Wall -Wextra -pedantic
+CFLAGS = -std=c++11 -Wall -Wextra -pedantic -I include
 
-SFMLFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+# CPPFLAGS = 
+
+SFMLFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 SRCS = main.cpp
 
@@ -20,3 +22,5 @@ $(EXEC): $(OBJS)
 
 clean:
 	rm -f $(OBJS) $(EXEC)
+
+re: clean all
