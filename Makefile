@@ -1,44 +1,22 @@
-##
-## EPITECH PROJECT, 2024
-## MAkefile
-## File description:
-## Makefile
-##
-
 CC = g++
 
-CFLAGS = -Wall -Wextra -std=c++11
+CFLAGS = -std=c++11 -Wall -Wextra -pedantic
 
-INCLUDES = -Iinclude
+SFMLFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
-LIBS = -lsfml-graphics -lsfml-window -lsfml-system
+SRCS = main.cpp
 
-SRCDIR = src
+OBJS = $(SRCS:.cpp=.o)
 
-OBJDIR = obj
+EXEC = app
 
-BINDIR = bin
+all: $(EXEC)
 
-TARGET = $(BINDIR)/app
+$(EXEC): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(SFMLFLAGS)
 
-SOURCES = $(wildcard $(SRCDIR)/*.cpp)
-
-OBJECTS = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SOURCES))
-
-$(TARGET): $(OBJECTS)
-	@mkdir -p $(BINDIR)
-	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LIBS)
-
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR) $(BINDIR)
-
-fclean: clean
-	rm -rf $(TARGET)
-
-re: fclean all
-
-.PHONY: clean fclean re
+	rm -f $(OBJS) $(EXEC)
