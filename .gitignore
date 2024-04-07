@@ -1,0 +1,22 @@
+## Binary files
+app
+*.out
+
+# IDEs folders
+.vscode
+.idea
+
+# Log files
+*.log
+*.gc*
+vgcore*
+
+# Output files
+*.a
+*.hi
+*.o
+*.so
+
+# Ignored folders
+.ignore/*
+.obj/*

@@ -6,27 +6,32 @@
 */
 
 #ifndef IMPORT_HPP_
-#define IMPORT_HPP_
+    #define IMPORT_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Network.hpp>
+    #include <SFML/Graphics.hpp>
+    #include <SFML/Audio.hpp>
+    #include <SFML/System.hpp>
+    #include <SFML/Window.hpp>
+    #include <SFML/Network.hpp>
+
+    #include "menu.hpp"
 
 namespace imp {
+    int game_app(void);
 
-    class graphic {
+    class Graphic {
         public:
-            graphic();
-            ~graphic() = default;
+            Graphic();
+            ~Graphic() = default;
         protected:
     };
-    class game {
+
+    class Game {
         public:
-            game();
-            ~game() = default;
+            Game();
+            ~Game() = default;
     };
+
 }
 
 #endif /* !IMPORT_HPP_ */
