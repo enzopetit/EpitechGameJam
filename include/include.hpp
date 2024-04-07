@@ -13,6 +13,7 @@
     #include <SFML/System.hpp>
     #include <SFML/Window.hpp>
     #include <SFML/Network.hpp>
+    #include <iostream>
 
 class Graphic {
     public:
@@ -28,9 +29,10 @@ class Graphic {
 
 class Menu {
     public:
-        Menu() {
-            if (music.openFromFile("daft.ogg"))
-                music.play();
+        Menu(sf::RenderWindow* window) : window(window) {
+            window->setFramerateLimit(30);
+            // if (music.openFromFile("daft.ogg"))
+            //     music.play();
 
         }
         ~Menu() {}
@@ -38,7 +40,7 @@ class Menu {
         // void start_game();
         // void end_game();
     private:
-        sf::RenderWindow* windows;
+        sf::RenderWindow* window;
         sf::Music music;
 };
 
