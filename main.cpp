@@ -12,5 +12,5 @@ int main(void)
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Jam Game");
     window.setFramerateLimit(30);
 
-    return ;
+    return 0;
 }
