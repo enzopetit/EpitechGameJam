@@ -26,13 +26,13 @@ int imp::Menu::main_loop(sf::RenderWindow &window) {
                 window.close();
                 return 0;
             }
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter) {
-                std::cout << "started game\n";
-                //
-                // Put call to main game here
-                //
+            if (btn_start.isClicked(window, event)) {
+                std::cout << "game started";
+                // start game function here
             }
         }
+
+
 
         window.clear(sf::Color(0x262626FF));
         draw_menu(window);
