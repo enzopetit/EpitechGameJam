@@ -7,6 +7,94 @@
 
 #include "include.hpp"
 
+void Menu::displayCredit()
+{
+    sf::Text text;
+    sf::Font font;
+    text.setFont(font);
+    text.setCharacterSize(30);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold);
+    text.setString("Credits:\n\nEliot GOURDOUX - Premiere annee a Epitech\nArslan TETU - Premiere annee a Epitech\nEnzo PETIT - Premiere annee a Epitech");
+    text.setPosition(100, 100);
+
+    sf::RectangleShape backButton(sf::Vector2f(100.0f, 50.0f));
+    backButton.setFillColor(sf::Color::Blue);
+    backButton.setPosition(100, 500);
+
+    sf::Text backText;
+    backText.setFont(font);
+    backText.setCharacterSize(20);
+    backText.setFillColor(sf::Color::White);
+    backText.setString("Retour");
+    backText.setPosition(130, 510);
+
+    while (window->isOpen()) {
+        sf::Event event;
+        while (window->pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window->close();
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                sf::Vector2i mousePosition = sf::Mouse::getPosition(*window);
+                if (backButton.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
+                    return;
+                }
+            }
+        }
+
+        window->clear(sf::Color(128, 128, 128));
+        window->draw(text);
+        window->draw(backButton);
+        window->draw(backText);
+        window->display();
+    }
+}
+
+void Menu::displayRules()
+{
+    sf::Text text;
+    sf::Font font;
+    text.setFont(font);
+    text.setCharacterSize(30);
+    text.setFillColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold);
+    text.setString("Regles:\n\nDans ce jeu vous incarner 1 personnages qui a ete separe en 2 entites.\nSont but est de recuperer les yin avec sa partie blanche, et la yang avec sa partie noir\nPour redevenir gris en fusionnant\nPar ce la vie, c'est pas tout blanc tout noir...\ntouche blanche = z, q, s, d\ntouche noir = fleche directionnel");
+    text.setPosition(100, 100);
+
+    sf::RectangleShape backButton(sf::Vector2f(100.0f, 50.0f));
+    backButton.setFillColor(sf::Color::Blue);
+    backButton.setPosition(100, 500);
+
+    sf::Text backText;
+    backText.setFont(font);
+    backText.setCharacterSize(20);
+    backText.setFillColor(sf::Color::White);
+    backText.setString("Retour");
+    backText.setPosition(130, 510);
+
+    while (window->isOpen()) {
+        sf::Event event;
+        while (window->pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window->close();
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                sf::Vector2i mousePosition = sf::Mouse::getPosition(*window);
+                if (backButton.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
+                    return;
+                }
+            }
+        }
+
+        window->clear(sf::Color(128, 128, 128));
+        window->draw(text);
+        window->draw(backButton);
+        window->draw(backText);
+        window->display();
+    }
+}
+
 void Menu::displayButton()
 {
     sf::Texture texture;
