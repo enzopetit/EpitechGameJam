@@ -27,7 +27,7 @@ int main(void)
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Jam Game");
     window.setFramerateLimit(30);
 
-    Menu menu;
+    Menu menu(&window);
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {

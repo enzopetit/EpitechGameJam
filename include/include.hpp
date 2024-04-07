@@ -28,9 +28,10 @@ class Graphic {
 
 class Menu {
     public:
-        Menu() {
+        Menu(sf::RenderWindow *window) {
             if (music.openFromFile("daft.ogg"))
                 music.play();
+            windows = window;
 
         }
         ~Menu() {}
