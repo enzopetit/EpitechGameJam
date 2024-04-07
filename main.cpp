@@ -67,7 +67,7 @@ void Menu::displayRules()
     text.setCharacterSize(30);
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
-    text.setString("Regles:\n\nDans ce jeu vous incarner 1 personnages qui a ete separe en 2 entites.\nSont but est de recuperer les yin avec sa partie blanche, et la yang avec sa partie noir\nPour redevenir gris en fusionnant\nPar ce la vie, c'est pas tout blanc tout noir...\ntouche blanche = z, q, s, d\ntouche noir = fleche directionnel");
+    text.setString("Regles:");
     text.setPosition(50, 50);
 
     sf::RectangleShape backButton(sf::Vector2f(100.0f, 50.0f));
@@ -174,7 +174,7 @@ void Menu::displayButton()
                 sf::Vector2i mousePosition = sf::Mouse::getPosition(*window);
 
                 if (buttonJouer.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
-                    // display_world(y);
+                    display_world(y);
                 } else if (buttonRegles.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
                     displayRules();
                 } else if (buttonCreateur.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
