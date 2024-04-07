@@ -1,24 +1,32 @@
+##
+## EPITECH PROJECT, 2023
+## Makefile
+## File description:
+## Compileur
+##
+
 CC = g++
+CPPFLAGS = -Wall -Wextra -I include
+SFMLFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
-CFLAGS = -std=c++11 -Wall -Wextra -pedantic -I include
+SRC = main.cpp \
+    $(wildcard src/*.cpp) \
+	$(wildcard src/colisions/*.cpp)
 
-SFMLFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+OBJ = $(SRC:.cpp=.o)
+NAME = BOH
 
-SRCS = main.cpp
+all: $(NAME)
 
-OBJS = $(SRCS:.cpp=.o)
-
-EXEC = app
-
-all: $(EXEC)
-
-$(EXEC): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(SFMLFLAGS)
-
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME) $(CPPFLAGS) $(SFMLFLAGS) -g3
 
 clean:
-	rm -f $(OBJS) $(EXEC)
+	rm -f $(OBJ)
 
-re: clean all
+fclean: clean
+	rm -f $(NAME) $(OBJ)
+
+re: fclean all
+
+.PHONY: all re clean fclean
