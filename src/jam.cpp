@@ -10,8 +10,10 @@
 int imp::game_app(void)
 {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Jam Game");
-    //load other important things to load before start
+    window.setFramerateLimit(60);
 
     imp::Menu menu;
+    imp::Game *game;
+    game->setUserName("User Test");
     return menu.main_loop(&window);
 }

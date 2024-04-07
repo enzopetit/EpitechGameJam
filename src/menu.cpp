@@ -10,7 +10,8 @@
 
 imp::Menu::Menu() {}
 
-int imp::Menu::main_loop(sf::RenderWindow *window) {
+int imp::Menu::main_loop(sf::RenderWindow *window)
+{
     sf::CircleShape circle(50);
     circle.setFillColor(sf::Color::Blue);
     circle.setPosition(400, 300);
