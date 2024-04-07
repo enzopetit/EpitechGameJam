@@ -111,12 +111,25 @@ void Menu::startGame()
         std::cout << "Erreur lors du chargement de la police." << std::endl;
         return;
     }
-    text.setFont(font);
-    text.setCharacterSize(30);
-    text.setFillColor(sf::Color::White);
-    text.setStyle(sf::Text::Bold);
-    text.setString("Game is starting ...");
-    text.setPosition(50, 50);
+
+    sf::Texture texture;
+    if (!texture.loadFromFile("portail.jpg")) {
+        std::cout << "Erreur lors du chargement de l'image." << std::endl;
+        return;
+    }
+    sf::Sprite sprite;
+    sprite.setTexture(texture);
+    sprite.setPosition(500, 100);
+    sf::IntRect textureRect(sprite.getTextureRect());
+    textureRect.left = sprite.getTexture()->getSize().x - 750;
+    textureRect.top = 0;
+    textureRect.width = 1100;
+    textureRect.height = 700;
+    sprite.setTextureRect(textureRect);
+    sprite.setOrigin(textureRect.width, 0);
+    sprite.setScale(0.5f, 0.5f);
+    sprite.setPosition(window->getSize().x - 50, 50);
+    sprite.setScale(50 / sprite.getGlobalBounds().width, 50 / sprite.getGlobalBounds().height);
 
     while (window->isOpen()) {
         sf::Event event;
@@ -125,8 +138,8 @@ void Menu::startGame()
                 window->close();
         }
 
-        window->clear(sf::Color(128, 128, 128));
-        window->draw(text);
+        window->clear(sf::Color(0, 0, 0));
+        window->draw(sprite);
         window->display();
     }
 }
