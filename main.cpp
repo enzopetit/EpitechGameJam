@@ -11,12 +11,16 @@ void Menu::displayCredit()
 {
     sf::Text text;
     sf::Font font;
+    if (!font.loadFromFile("arial.ttf")) {
+        std::cout << "Erreur lors du chargement de la police." << std::endl;
+        return;
+    }
     text.setFont(font);
     text.setCharacterSize(30);
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
-    text.setString("Credits:\n\nEliot GOURDOUX - Premiere annee a Epitech\nArslan TETU - Premiere annee a Epitech\nEnzo PETIT - Premiere annee a Epitech");
-    text.setPosition(100, 100);
+    text.setString("Credits:\n\nEliot GOURDOUX\nArslan TETU\nEnzo PETIT\nRavenne LEOPOLD\nLucas RYCHLEWSKI");
+    text.setPosition(50, 50);
 
     sf::RectangleShape backButton(sf::Vector2f(100.0f, 50.0f));
     backButton.setFillColor(sf::Color::Blue);
@@ -55,12 +59,16 @@ void Menu::displayRules()
 {
     sf::Text text;
     sf::Font font;
+    if (!font.loadFromFile("arial.ttf")) {
+        std::cout << "Erreur lors du chargement de la police." << std::endl;
+        return;
+    }
     text.setFont(font);
     text.setCharacterSize(30);
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
     text.setString("Regles:\n\nDans ce jeu vous incarner 1 personnages qui a ete separe en 2 entites.\nSont but est de recuperer les yin avec sa partie blanche, et la yang avec sa partie noir\nPour redevenir gris en fusionnant\nPar ce la vie, c'est pas tout blanc tout noir...\ntouche blanche = z, q, s, d\ntouche noir = fleche directionnel");
-    text.setPosition(100, 100);
+    text.setPosition(50, 50);
 
     sf::RectangleShape backButton(sf::Vector2f(100.0f, 50.0f));
     backButton.setFillColor(sf::Color::Blue);
