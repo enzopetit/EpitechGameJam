@@ -80,9 +80,9 @@ void Menu::displayButton()
                 if (buttonJouer.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
                     // display_world(y);
                 } else if (buttonRegles.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
-                    // display_regle(y);
+                    displayRules();
                 } else if (buttonCreateur.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
-                    // display_credit(y);
+                    displayCredit();
                 } else if (buttonQuitter.getGlobalBounds().contains(mousePosition.x, mousePosition.y)) {
                     window->close();
                 }

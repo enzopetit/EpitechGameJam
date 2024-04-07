@@ -37,6 +37,8 @@ class Menu {
         }
         ~Menu() {}
         void displayButton();
+        void displayRules();
+        void displayCredit();
         // void start_game();
         // void end_game();
     private:
